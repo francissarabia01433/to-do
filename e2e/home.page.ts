@@ -9,28 +9,28 @@ export class HomePage {
 
   todoList = [{
     itemName :'Coding',
-    itemDueDate : '10-10-22',
+    itemDueDate : '13-10-21',
     itemPriority : 'high',
     itemCategory : 'Work'
   },
   {
     itemName :'Design',
-    itemDueDate : '10-10-22',
+    itemDueDate : '28-10-21',
     itemPriority : 'low',
     itemCategory : 'Work'
   },
 
   {
     itemName :'Shopping',
-    itemDueDate : '10-10-22',
+    itemDueDate : '30-10-21',
     itemPriority : 'middle',
     itemCategory : 'Personal'
   },
 
   {
     itemName :'Workout',
-    itemDueDate : '10-10-22',
-    itemPriority : 'high',
+    itemDueDate : '30-10-21',
+    itemPriority : 'middle',
     itemCategory : 'Personal'
   }
 ]
