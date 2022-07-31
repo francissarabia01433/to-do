@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular/providers/modal-controller';
 import { AddNewTaskPage } from '../add-new-task/add-new-task.page';
 
 @Component({
@@ -12,14 +13,14 @@ export class HomePage {
 
   today : number = Date.now()
 
-  constructor(public modalCtrl:ModalController) {}
+  constructor(public modalCtrl:ModalController) { }
 
   async addTask() {
     const modal = await this.modalCtrl.create({
       component:AddNewTaskPage
     })
 
-    modal.OnDidDismiss().then(newTaskObj =>{
+    modal.onDidDismiss().then(newTaskObj =>{
       console.log(newTaskObj.data );
       this.todoList.push(newTaskObj.data)
   })
