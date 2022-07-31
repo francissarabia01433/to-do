@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AddNewTaskPage } from '../add-new-task/add-new-task.page';
 
 @Component({
   selector: 'app-home',
@@ -7,37 +8,26 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  todoList = [{
-    itemName :'Coding',
-    itemDueDate : '10-10-22',
-    itemPriority : 'high',
-    itemCategory : 'Work'
-  },
-  {
-    itemName :'Design',
-    itemDueDate : '10-10-22',
-    itemPriority : 'low',
-    itemCategory : 'Work'
-  },
-
-  {
-    itemName :'Shopping',
-    itemDueDate : '10-10-22',
-    itemPriority : 'middle',
-    itemCategory : 'Personal'
-  },
-
-  {
-    itemName :'Workout',
-    itemDueDate : '10-10-22',
-    itemPriority : 'high',
-    itemCategory : 'Personal'
-  }
-]
+  todoList = []
 
   today : number = Date.now()
 
+  constructor(public modalCtrl:ModalController) {}
 
-  constructor() {}
+  async addTask() {
+    const modal = await this.modalCtrl.create({
+      component:AddNewTaskPage
+    })
 
+    modal.OnDidDismiss().then(newTaskObj =>{
+      console.log(newTaskObj.data );
+      this.todoList.push(newTaskObj.data)
+  })
+
+  return await modal.present()
+ }
+ delete(index){
+  this.todoList.splice(index,1)
+ }
+ 
 }
